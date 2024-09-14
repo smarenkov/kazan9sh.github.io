@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 
@@ -35,7 +34,7 @@
         <img src="images/me.jpg" title="im really handsome?" alt=":(" width="400" height="300">
         <aside>
             <h2 id="about"><i class="fas fa-info"></i> About me</h2>
-            <p>Alexey,23 y.o.I live in the far east Russia. Work in IT public health. Future programmer and a little sound designer</p>
+            <p>Alexey,<span id="age"></span> y.o.I live in the far east Russia. Work in IT public health. Future programmer and a little sound designer</p>
             <h2 id="education"><i class="fas fa-graduation-cap"></i> Education</h2>
             <p>Secondary techinical, Information Systems Technician</p>
             <h2 id="experience"><i class="fas fa-briefcase"></i> Experience</h2>
@@ -72,6 +71,27 @@
             <li><i class="fas fa-copyright"></i> alex.ei</li>
         </ul>
     </footer>
+
+    <script>
+        function calculateAge() {
+            const birthdate = new Date('1998-01-10');
+            const today = new Date();
+
+            let age = today.getFullYear() - birthdate.getFullYear();
+            const monthDifference = today.getMonth() - birthdate.getMonth();
+
+            if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthdate.getDate())) {
+                age--;
+            }
+
+            return age;
+        }
+
+        window.onload = function () {
+            const age = calculateAge();
+            document.getElementById('age').textContent = age;
+        };
+    </script>
 </body>
 
 </html>
