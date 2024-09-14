@@ -8,6 +8,26 @@
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <link href="https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles1/style1.css">
+
+    <script>
+        function calculateAge() {
+            const birthdate = new Date('1998-01-10');
+            const today = new Date();
+
+            let age = today.getFullYear() - birthdate.getFullYear();
+            const monthDifference = today.getMonth() - birthdate.getMonth();
+
+            if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthdate.getDate())) {
+                age--;
+            }
+
+            return age;
+        }
+
+        window.onload = function () {
+            document.getElementById('age').textContent = calculateAge();
+        };
+    </script>
 </head>
 
 <body>
@@ -71,27 +91,6 @@
             <li><i class="fas fa-copyright"></i> alex.ei</li>
         </ul>
     </footer>
-
-    <script>
-        function calculateAge() {
-            const birthdate = new Date('1998-01-10');
-            const today = new Date();
-
-            let age = today.getFullYear() - birthdate.getFullYear();
-            const monthDifference = today.getMonth() - birthdate.getMonth();
-
-            if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthdate.getDate())) {
-                age--;
-            }
-
-            return age;
-        }
-
-        window.onload = function () {
-            const age = calculateAge();
-            document.getElementById('age').textContent = age;
-        };
-    </script>
 </body>
 
 </html>
